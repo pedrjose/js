@@ -1,4 +1,4 @@
-// Write a JavaScript program to find the area of ascalene triangle.
+// Write a JavaScript program to find the area of a scalene triangle.
 
 let area;
 const a = 8; const b = 10; const c = 6;

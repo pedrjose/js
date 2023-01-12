@@ -7,8 +7,8 @@ let hour; let minutos; let seconds;
 hour = day.getHours(); minutes = day.getMinutes(); seconds = day.getSeconds();
 
 if (hour>=12) {
-    console.log('Today is '+daylist[today]+' and current time is '+hour+':'+minutes+':'+seconds+', PM!');
+    console.log(`Today is ${daylist[today]} and current time is ${hour}:${minutes}:${seconds}, PM!`);
 }
 else {
-    console.log('Today is '+daylist[today]+' and current time is '+hour+':'+minutes+':'+seconds+', AM!');
+    console.log(`Today is ${daylist[today]} and current time is ${hour}:${minutes}:${seconds}, AM!`);
 }
