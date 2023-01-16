@@ -1,4 +1,4 @@
-// Write a JavaScript program to calculate days left until next Christmas.
+// Write a JavaScript program to calculate days left until next Christmas and show it in a HTML page.
 
 let day = new Date(); let today = day.getDate(); let month = day.getMonth() + 1;
 let daysUntilChristmas = 359; let counterDays = 0; let counterMonths = 0;
