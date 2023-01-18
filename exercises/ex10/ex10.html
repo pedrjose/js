@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            background: white;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: black;
+        }
+
+        .section-settings {
+            min-height: 100vh;
+            background-image: url("./movies-background.jpg");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .container-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .back-cover {
+            min-height: 100vh;
+            background: rgba(0, 0, 0, .7);
+        }
+
+        input {
+            appearance: none;
+            background-color: #FAFBFC;
+            border: 1px solid rgba(27, 31, 35, 0.15);
+            border-radius: 6px;
+            box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+            box-sizing: border-box;
+            color: #24292E;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            font-size: 14px;
+            font-weight: 1000;
+            line-height: 20px;
+            list-style: none;
+            padding: 6px 16px;
+            position: relative;
+            transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+            white-space: nowrap;
+            word-wrap: break-word;
+        }
+
+        .successful-result {
+            background: green;
+            border-radius: 5px;
+            color: white;
+            height: 25px;
+        }
+        .failed-result {
+            background: red;
+            border-radius: 5px;
+            color: white;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1 class="header">Login Page</h1>
+    </nav>
+    <section class="section-settings">
+        <div class="back-cover container-box">
+            <input type="text" id="user-login" placeholder="you@login.com" />
+            <input type="text" id="user-password" placeholder="*****" />
+            <input type="button" onclick="loginUser()" value="Login" />
+            <div id="successful" class="successful-result"></div>
+            <div id="failed" class="failed-result"></div>
+        </div>
+
+    </section>
+    <script src="./ex10.js"></script>
+</body>
+
+</html>
