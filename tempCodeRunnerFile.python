@@ -1,0 +1,5 @@
+tempo = int(input('\nINFORME A MINUTAGEM DESEJADA: '))
+resultado = (3*90)/tempo
+
+print(f'\nVocê usará {resultado} em relação a massa!')
+
