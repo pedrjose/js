@@ -26,17 +26,17 @@ function addRemoveButton(li) {
 
 // create a task to the to-do-list
 function createTask(inputText) {
-    const li = createElementLi();
+    let li = createElementLi();
     li.innerText = inputText
     tasksList.appendChild(li);
     clearInput();
     li = addRemoveButton(li);
-    saveTasks()
 }
 
 // get the 'ENTER' button click event
 inputText.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
+        if (!inputText.value) return;
         createTask(inputText.value);
     }
 })
@@ -53,32 +53,53 @@ document.addEventListener('click', function (event) {
 
     if (element.classList.contains('delete')) {
         element.parentElement.remove();
+    }
+})
+
+// save the tasks from the to-do-list
+document.addEventListener('click', function (event) {
+    const element = event.target;
+
+    if (element.classList.contains('save-list')) {
         saveTasks();
     }
 })
 
-// ERROR 
-function saveTasks () {
+// load the tasks from the to-do-list
+document.addEventListener('click', function (event) {
+    const element = event.target;
+
+    if (element.classList.contains('load-list')) {
+        loadTasks();
+    }
+})
+
+// function to save tasklist
+function saveTasks() {
     const liList = tasksList.querySelectorAll('li');
     const workList = [];
 
-    for (task of liList) {
-        let taskText = tasksList.innerText;
+    for (let task of liList) {
+        let taskText = task.innerText;
         taskText = taskText.replace('x', '').trim();
         workList.push(taskText);
     }
 
     const tasksJSON = JSON.stringify(workList);
-    localStorage.setItem('myTasks', tasksJSON);
+    localStorage.setItem('tasks', tasksJSON);
 }
 
-function loadTasks () {
-    const tasks = localStorage.getItem('myTasks');
-    const taskList = JSON.parse(tasks);
+// function to load tasklist
+function loadTasks() {
+    if (!localStorage.getItem('tasks')) {
+        alert(`THERE'S NOT SAVED TASKS!`);
+    }
+    else {
+        const tasks = localStorage.getItem('tasks');
+        const taskList = JSON.parse(tasks);
 
-    for (let task of taskList) {
-        createTask(task);
+        for (let task of taskList) {
+            createTask(task);
+        }
     }
 }
-
-loadTasks ();
